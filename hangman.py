@@ -44,6 +44,7 @@ class HangmanGame:
     def check_guess(self):
         current_display = self.display_word()
         self.display_label.config(text=current_display)
+        self.chance_label.config(text = f"Left Chance: {self.chance}")
 
         if current_display == self.word:
             messagebox.showinfo("Congratulations", "Congratulations!")
@@ -73,6 +74,7 @@ class HangmanGame:
         self.chance = 5
         self.display_label.config(text=self.display_word())
         self.hint_label.config(text = f"HINT: {self.hint}")
+        self.chance_label.config(text = f"Left Chance: {self.chance}")
 
     def create_widgets(self):
         tk.Label(self.master, text="Welcome to Hangman Game!", font=("Helvetica", 16)).pack(pady=10)
@@ -86,6 +88,8 @@ class HangmanGame:
         tk.Label(self.master, text = "Enter your guess:").pack()
         self.entry = tk.Entry(self.master, width = 5, font = ("Helvetica", 14))
         self.entry.pack(pady=10)
+        self.chance_label = tk.Label(self.master, text = f"Left Chance: {self.chance}", font = ("Helvetica", 10))
+        self.chance_label.pack()
 
         tk.Button(self.master, text="Guess", command=self.make_guess, font=("Helvetica", 14)).pack()
 
