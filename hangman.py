@@ -68,3 +68,4 @@ if __name__ == '__main__':
     if chance == 0:
         print("GAME OVER")
         print("The word is ", word)
+        
